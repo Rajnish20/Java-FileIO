@@ -9,6 +9,7 @@ import java.util.List;
 public class EmployeePayrollFilesIOService {
 
     public static String PAYROLL_FILE_NAME = "C:\\Users\\rajni\\Desktop\\Payroll.txt";
+
     public void writeData(List<EmployeeData> employeeDataList) {
         StringBuffer buffer = new StringBuffer();
         employeeDataList.forEach(emp -> {
@@ -18,20 +19,26 @@ public class EmployeePayrollFilesIOService {
 
         try {
             Files.write(Paths.get(PAYROLL_FILE_NAME), buffer.toString().getBytes());
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void printData() {
         try {
-            Files.lines((new File(PAYROLL_FILE_NAME).toPath())).forEach(System.out :: println);
-        }
-        catch (IOException e)
-        {
+            Files.lines((new File(PAYROLL_FILE_NAME).toPath())).forEach(System.out::println);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public long countEntries() {
+        long entries = 0;
+        try {
+            entries = Files.lines(new File(PAYROLL_FILE_NAME).toPath()).count();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entries;
+    }
 }

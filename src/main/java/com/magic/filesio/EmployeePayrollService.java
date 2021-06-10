@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class EmployeePayrollService {
 
-    public enum IOService{ CONSOLE_IO,FILE_IO,DB_IO,REST_IO}
+    public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
 
     private List<EmployeeData> employeeDataList;
 
@@ -33,15 +33,21 @@ public class EmployeePayrollService {
     }
 
     public void writeEmployeeData(IOService ioService) {
-        if(ioService.equals(IOService.CONSOLE_IO))
+        if (ioService.equals(IOService.CONSOLE_IO))
             System.out.println(employeeDataList);
-        else if(ioService.equals(IOService.FILE_IO))
+        else if (ioService.equals(IOService.FILE_IO))
             new EmployeePayrollFilesIOService().writeData(employeeDataList);
     }
 
     public void printData(IOService ioService) {
-        if(ioService.equals(IOService.FILE_IO))
+        if (ioService.equals(IOService.FILE_IO))
             new EmployeePayrollFilesIOService().printData();
+    }
+
+    public long countEntries(IOService ioService) {
+        if (ioService.equals(IOService.FILE_IO))
+            return new EmployeePayrollFilesIOService().countEntries();
+        return 0;
     }
 
 }
