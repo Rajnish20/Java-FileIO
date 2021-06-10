@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EmployeePayRollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-10T11:27:57" hostname="DESKTOP-38KI29F" time="0.049">
+<testsuite name="EmployeePayRollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-10T16:02:18" hostname="DESKTOP-38KI29F" time="0.042">
   <properties/>
-  <testcase name="given3EmployeeWhenWrittenToFile_ShouldMatchEmployeesEntry()" classname="EmployeePayRollServiceTest" time="0.049"/>
+  <testcase name="given3EmployeeWhenWrittenToFile_ShouldMatchEmployeesEntry()" classname="EmployeePayRollServiceTest" time="0.042"/>
   <system-out><![CDATA[{id=1, name='Daniel', salary=2000000.0}
 {id=2, name='Bella', salary=120000.0}
 {id=3, name='Rose', salary=90000.0}

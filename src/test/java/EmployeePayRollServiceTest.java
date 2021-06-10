@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class EmployeePayRollServiceTest {
     @Test
@@ -16,7 +17,11 @@ public class EmployeePayRollServiceTest {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(Arrays.asList(employeeData));
         employeePayrollService.writeEmployeeData(EmployeePayrollService.IOService.FILE_IO);
         employeePayrollService.printData(EmployeePayrollService.IOService.FILE_IO);
+        List<String> lines = employeePayrollService.readEmployee(EmployeePayrollService.IOService.FILE_IO);
         long entries = employeePayrollService.countEntries(EmployeePayrollService.IOService.FILE_IO);
         Assertions.assertEquals(3, entries);
+        Assertions.assertEquals(3, lines.size());
     }
+
+
 }

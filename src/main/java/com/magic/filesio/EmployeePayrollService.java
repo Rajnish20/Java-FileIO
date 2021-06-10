@@ -1,10 +1,12 @@
 package com.magic.filesio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayrollService {
+
 
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
 
@@ -48,6 +50,12 @@ public class EmployeePayrollService {
         if (ioService.equals(IOService.FILE_IO))
             return new EmployeePayrollFilesIOService().countEntries();
         return 0;
+    }
+
+    public List<String> readEmployee(IOService ioService) {
+        if(ioService.equals(IOService.FILE_IO))
+            return new EmployeePayrollFilesIOService().readFileInList();
+        return null;
     }
 
 }
